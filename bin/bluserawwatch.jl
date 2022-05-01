@@ -1,7 +1,7 @@
 #!/bin/bash
 #=
 export JULIA_PROJECT=$(dirname $(dirname $(readlink -e "${BASH_SOURCE[0]}")))
-exec julia --color=yes --startup-file=no "${BASH_SOURCE[0]}" "$@"
+exec julia --color=no --startup-file=no "${BASH_SOURCE[0]}" "$@"
 =#
 
 # This is primarily a script that used INotify.jl to watch for the creation and
