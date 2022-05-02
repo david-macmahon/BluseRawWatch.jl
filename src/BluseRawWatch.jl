@@ -2,9 +2,12 @@ module BluseRawWatch
 
 export rediskey
 export dirwatcher_callback
+export run_watcher
 
 using Redis
 using INotify
+
+include("run_watcher.jl")
 
 function rediskey()
     hostname = split(gethostname(), '.')[end]
