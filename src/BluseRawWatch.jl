@@ -10,7 +10,7 @@ using INotify
 include("run_watcher.jl")
 
 function rediskey()
-    hostname = split(gethostname(), '.')[end]
+    hostname = split(gethostname(), '.')[1]
     "bluse_raw_watch:$hostname"
 end
 
