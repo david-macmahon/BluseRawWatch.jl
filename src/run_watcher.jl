@@ -19,7 +19,7 @@ function run_watcher(args...)
             error("no directory given")
         end
     end
-    dir = ARGS[1]
+    dir = args[1]
 
     redishost = get(ENV, "REDISHOST", "redishost")
     redis = Redis.RedisConnection(host=redishost)
