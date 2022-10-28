@@ -1,7 +1,7 @@
 name = "BluseRawWatch"
 uuid = "ee334479-6f21-49fc-a9ed-05530e45cd44"
 authors = ["David MacMahon <davidm@astro.berkeley.edu> and contributors"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 INotify = "9e73f634-81c6-42cf-8211-fb9f7b28b16d"
