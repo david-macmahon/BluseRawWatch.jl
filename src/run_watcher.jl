@@ -25,6 +25,9 @@ function run_watcher(args...)
     redis = Redis.RedisConnection(host=redishost)
     key = rediskey()
 
+    # Remove all stale members from redis set
+    remove_stale_entries(redis)
+
     @info "watching $dir"
     dw = INotify.DirWatcher(dirwatcher_callback, dir, INotify.CREATE|INotify.DELETE; redis=redis, key=key)
 

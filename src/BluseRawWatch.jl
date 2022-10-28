@@ -14,6 +14,23 @@ function rediskey()
     "bluse_raw_watch:$hostname"
 end
 
+"""
+    remove_stale_entries(redis)
+
+Remove all stale members from redis set (i.e. entries whose files no longer
+exist).
+"""
+function remove_stale_entries(redis)
+    key = rediskey()
+    files = smembers(redis, key)
+    for f in files
+        if !isfile(f)
+            @info "removing stale entry $f"
+            srem(redis, key, f)
+        end
+    end
+end
+
 function dirwatcher_callback(dir_event_name; redis, key)
     try
         dir, event, name = dir_event_name
